@@ -87,7 +87,3 @@ Bill saved to bill.txt
 - Discount support
 - Store bills in a database
 - Print the bill with a unique invoice number
-
-## Author
-
-Your Name | Roll No. | Section
