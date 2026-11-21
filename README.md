@@ -1,11 +1,93 @@
-Simple Billing System: Project Description
+# Simple Billing System
 
-The Simple Billing System is a console-based application written in Python 3 for a small shop. It lets a cashier add products with quantities for a customer and generate a bill showing the subtotal, GST and grand total. The final bill is saved to a text file named bill.txt.
+A console billing system for a small shop, written in Python 3. The cashier adds products with quantities for a customer and generates a bill with subtotal, GST and grand total. The bill is saved to `bill.txt`.
 
-The program uses four core Python concepts. The product catalogue is stored in a dictionary, with Rice at Rs.50, Sugar at Rs.40 and Oil at Rs.120. The items added to the bill are kept in a list. Separate functions handle adding an item, viewing the bill, calculating totals and generating the final bill. File handling saves the finished bill to bill.txt.
+## Features
 
-The cashier starts by entering the customer’s name, then picks options from a menu. When an item is added, the program checks that the product exists in the catalogue and that the quantity is at least 1. Invalid input produces a clear message, such as “Invalid product. Available: Rice, Sugar, Oil” or “Quantity must be at least 1.” Valid items are added with their amount, for example “Rice x2 added | Amount: 100”. If the same product is added again, its quantity is merged into the existing line.
+- Product catalogue stored in a dictionary: Rice Rs.50, Sugar Rs.40, Oil Rs.120
+- Bill items stored in a list
+- Functions to add an item, view the bill and generate the final bill
+- GST calculated at 5% of the subtotal
+- Input validation for product name and quantity
+- Neatly formatted bill, saved to `bill.txt`
+- Bonus: a web version (`billing.html`) with the same logic
 
-When the bill is generated, the program calculates the subtotal by adding all item amounts. It then calculates GST at 5% of the subtotal and adds the two to get the grand total. For example, Rice x2, Oil x1 and Sugar x3 give a subtotal of 340, GST of 17.00 and a grand total of 357.00. The bill is printed in a neat table with customer name, date, items, prices, quantities and totals, and then written to bill.txt.
+## Concepts Used
 
-A web version of the same system is also provided as a bonus. It follows the same logic and validation messages, so it is easy to demonstrate.
+Lists, Dictionaries, Functions, File Handling
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `billing_system.py` | Main Python program (console) |
+| `billing.html` | Web version (open in any browser) |
+| `bill.txt` | Generated bill (created when you run the program) |
+| `README.md` | Project documentation |
+
+## Requirements
+
+- Python 3.x (no external libraries needed)
+
+## How to Run
+
+1. Open the project folder in VS Code.
+2. Open the terminal (`Ctrl + ~`).
+3. Run:
+
+```bash
+python billing_system.py
+```
+
+## Menu Options
+
+```
+1. Show products
+2. Add item
+3. View bill
+4. Generate bill
+5. New customer
+6. Exit
+```
+
+## Sample Run
+
+```
+Customer name: Riya
+Choose an option (1-6): 2
+Add item: Rice
+Quantity: 2
+Rice x2 added | Amount: 100
+...
+Subtotal: 340 | GST (5%): 17.00
+Grand Total: 357.00
+Bill saved to bill.txt
+```
+
+## Test Cases
+
+| # | Scenario | Input | Expected Output |
+|---|----------|-------|-----------------|
+| 1 | Normal input | Rice, Qty 2 | `Rice x2 added \| Amount: 100` |
+| 2 | Minimum input | Sugar, Qty 1, generate bill | Subtotal 40, GST 2.00, Grand Total 42.00 |
+| 3a | Invalid product | Soap | `Invalid product. Available: Rice, Sugar, Oil` |
+| 3b | Invalid quantity | Rice, Qty 0 | `Quantity must be at least 1.` |
+| 4 | Different valid scenario | Riya: Rice x2, Oil x1, Sugar x3 | Subtotal 340, GST 17.00, Grand Total 357.00, bill saved |
+
+## How It Works
+
+1. `add_item(name, quantity)` checks the product exists in the dictionary and the quantity is at least 1, then appends the item to the bill list. Adding the same product again merges the quantity.
+2. `calculate_totals()` adds up all item amounts to get the subtotal, then GST (5%) and grand total.
+3. `view_bill()` prints the current bill.
+4. `generate_bill()` prints the final bill and writes it to `bill.txt`.
+
+## Future Improvements
+
+- Add more products and an option to edit prices
+- Discount support
+- Store bills in a database
+- Print the bill with a unique invoice number
+
+## Author
+
+Your Name | Roll No. | Section
