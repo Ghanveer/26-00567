@@ -1,7 +1,4 @@
-"""Simple Billing System (PS No. 25)
-Concepts: Lists, Dictionaries, Functions, File Handling
-Run:  python billing_system.py
-"""
+
 
 from datetime import datetime
 
